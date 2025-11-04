@@ -1,0 +1,72 @@
+{
+    "0": {
+        "id": "1000",
+        "level": "INFO",
+        "msg": "EMPTY",
+        "module_func": "EMPTY",
+        "time_start": "0",
+        "time_end": "0",
+        "execution_time_seconds": "0",
+        "time_stamp": "0"
+    },
+    "1": {
+        "id": "1012",
+        "level": "INFO",
+        "msg": "Conectado con exito a SQL Server",
+        "module_func": "servicios_sql.py-> ServiciosSql._conectar()",
+        "time_start": "2025-10-08 16:25:15",
+        "time_end": "2025-10-08 16:25:15",
+        "execution_time_seconds": "0.609",
+        "time_stamp": "2025-10-08 16:25:15"
+    },
+    "2": {
+        "id": "1015",
+        "level": "INFO",
+        "msg": "Consultando a la BD, DataFrame obtenido.",
+        "module_func": "servicios_sql.py-> ServiciosSql.consultar()",
+        "time_start": "2025-10-08 16:25:15",
+        "time_end": "2025-10-08 16:25:16",
+        "execution_time_seconds": "0.539",
+        "time_stamp": "2025-10-08 16:25:16"
+    },
+    "3": {
+        "id": "1012",
+        "level": "INFO",
+        "msg": "Conectado con exito a SQL Server",
+        "module_func": "servicios_sql.py-> ServiciosSql._conectar()",
+        "time_start": "2025-10-08 16:33:18",
+        "time_end": "2025-10-08 16:33:18",
+        "execution_time_seconds": "0.642",
+        "time_stamp": "2025-10-08 16:33:18"
+    },
+    "4": {
+        "id": "1015",
+        "level": "INFO",
+        "msg": "Consultando a la BD, DataFrame obtenido.",
+        "module_func": "servicios_sql.py-> ServiciosSql.consultar()",
+        "time_start": "2025-10-08 16:33:18",
+        "time_end": "2025-10-08 16:33:19",
+        "execution_time_seconds": "0.614",
+        "time_stamp": "2025-10-08 16:33:19"
+    },
+    "5": {
+        "id": "1012",
+        "level": "INFO",
+        "msg": "Conectado con exito a SQL Server",
+        "module_func": "servicios_sql.py-> ServiciosSql._conectar()",
+        "time_start": "2025-10-08 16:35:51",
+        "time_end": "2025-10-08 16:35:52",
+        "execution_time_seconds": "0.612",
+        "time_stamp": "2025-10-08 16:35:52"
+    },
+    "6": {
+        "id": "1015",
+        "level": "INFO",
+        "msg": "Consultando a la BD, DataFrame obtenido.",
+        "module_func": "servicios_sql.py-> ServiciosSql.consultar()",
+        "time_start": "2025-10-08 16:35:52",
+        "time_end": "2025-10-08 16:35:53",
+        "execution_time_seconds": "1.84",
+        "time_stamp": "2025-10-08 16:35:53"
+    }
+}
