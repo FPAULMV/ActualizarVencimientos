@@ -23,6 +23,7 @@ class Vencimientos():
         ]
         self.DF_VENCIMIENTOS =  self.obtener_vencimientos(self.__QUERY_VENCIMIENTOS)
         self.validar_campos(self.DF_VENCIMIENTOS, self.__CAMPOS_REQUERIDOS)
+        self.LISTA_CLIENTES = self.clientes(self.DF_VENCIMIENTOS)
         
 
 
@@ -47,7 +48,8 @@ class Vencimientos():
             df_columnas = {str(c).upper().strip().replace(" ", "").replace("_", "") for c in data_frame.columns}
             faltantes =  campos_formateados - df_columnas
             if faltantes:
-                sys.exit(f"Faltan columnas en el DataFrame {sorted(faltantes)}")
+                print(f"Faltan columnas en el DataFrame {sorted(faltantes)}")
+                sys.exit("-> Fin de la ejecucion del programa. <-".upper())
 
             value = True
             return value
@@ -58,13 +60,22 @@ class Vencimientos():
             print("-> FIN: Termino la validacion de las columnas del DataFrame.\n")
 
 
-    def clientes(self, data_frame: DataFrame) -> set:
-        clientes = data_frame["Destinos"]
-        
-        pass
-    
+    def clientes(self, data_frame: DataFrame) -> list:
+        try:    
+            clientes = data_frame["Destinos"].dropna().unique().tolist()
+            if not clientes:
+                print("INFO: No hay clientes para validar en el DataFrame.")
+                sys.exit("-> Fin de la ejecucion del programa. <-".upper())
+            return clientes
+        except Exception as e:
+            print("ERROR: Ocurrio un error al obtener la lista de clientes unicos.")
+            print(e)
+            sys.exit("-> Fin de la ejecucion del programa. <-".upper())
+        finally:
+            print("-> FIN: Termino de obtener la lista de los clientes unicos.\n")
 
     def portal_id_clientes(self):
+        
         pass
 
 
