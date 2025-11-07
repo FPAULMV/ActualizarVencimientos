@@ -167,7 +167,7 @@ if __name__ == '__main__':
             archivo_salida_sinergia.crear_documentos_csv(nombre_archivo)
 
             # Me falta agregar una funcion que alimente las lista de insert a la cardsystem.archivosgenerales.
-            query = "INSERT INTO [NexusFuel].[CardSystem].[ArchivosGenerales]"
+            query = ""
             
             with engine.connect() as conn:
 
