@@ -1,3 +1,4 @@
 .env
 trash/
 run/*.ps1
+storage/reports/*.csv
