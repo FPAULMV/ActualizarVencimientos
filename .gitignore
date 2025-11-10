@@ -1,4 +1,12 @@
+# Environment
 .env
+
+# Directories
 trash/
+env/
+_pycache__/
+reports/
+petrodiesel/
+proenergetics/
+sinergia/
 run/*.ps1
-storage/reports/*.csv
