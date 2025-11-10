@@ -4,7 +4,7 @@
 # Directories
 trash/
 env/
-_pycache__/
+__pycache__/
 reports/
 petrodiesel/
 proenergetics/
