@@ -131,7 +131,7 @@ class Vencimientos():
 
             return {
                 "nombre": nombre_mostrar,
-                "nombre_archivo": nombre_archivo,
+                "nombre_archivo": nombre_archivo.replace("/", "").replace("\\", ""),
                 "destino": str(destino[0]),
                 "tipo": 1,
                 "fecha_inicio": fecha_actual,
@@ -224,10 +224,23 @@ if __name__ == '__main__':
         else:
             CLIENTES_NO_ENCONTRADOS.append(cliente)
 
-    
-    print(f"CLIENTES NO ENCONTRADOS:\n{CLIENTES_NO_ENCONTRADOS}\n")
-    print(f"DATOS PARA INSERTAR:\n")
-    for e in INSERTS_ARCHIVOS_GENERALES:
-        input(e)
 
+    for e in INSERTS_ARCHIVOS_GENERALES:
+        print(e)
+
+    def excect_insert(insert_values: list[dict]) -> None:
+        """ Ejecuta insert a cardsystem. """
+
+        insert_cardsystem = text("""
+            INSERT INTO [NexusFuel].[CardSystem].[ArchivosGenerales] 
+            (Nombre, nombreArchivo, Destino, Tipo, FechaInicio, FechaFin, FechaCreacion)
+            VALUES (:nombre, :nombre_archivo, :destino, :tipo, :fecha_inicio, :fecha_fin, :fecha_creacion);
+            """)
+        
+        for value in insert_values:
+            with engine.connect() as conn:
+                conn.execute(
+                    insert_values, value,
+                )
+                
     print(("-> Fin de la ejecucion del programa. <-".upper()))
