@@ -24,19 +24,31 @@ class Sftp():
 
     def ftp_send_list_files(self, host: str, port: int, user: str, psw: str, files: list[Path]) -> None:
         """Envía múltiples archivos por FTP."""
+
+        registros = {
+                "exitosos": [],
+                "fallidos": []
+            }
+
         with FTP() as ftp:
             ftp.connect(host, port, timeout=10)
             ftp.login(user, psw)
 
             for local_file in files:
+                if local_file is None:
+                    print(f"[ERROR] la lista incluye un elemento no valido -> {local_file}")
+                    registros['fallidos'].append(str(f"Archivo invalido->{local_file}"))
+                    continue
+
                 if not local_file.exists():
                     print(f"[ERROR] No se encontró: {local_file}")
+                    registros['fallidos'].append(local_file)
                     continue
 
                 print(f"Enviando: {local_file.name}")
-
                 with open(local_file, "rb") as f:
                     ftp.storbinary(f"STOR {local_file.name}", f)
+                    registros['exitosos'].append(local_file)
             
 
 

@@ -211,7 +211,7 @@ class Vencimientos():
                 print(f"INFO: Transaccion revertida. {str(e)}")
                 registros["errores"].append(f"Error general: {str(e)}")
         return registros
-    
+
 
     def delete_vencimientos(self) -> None:
         """Elimina todos los registros de Vencimientos en CardSystem.ArchivosGenerales"""
@@ -228,14 +228,6 @@ class Vencimientos():
             print(f"-> FIN: Termino la eliminacion de vencimientos.")
 
 
-
-
-
-
-
-
-
-    
     def obtener_portal_id(self, client_id: str, dataframe_portal: DataFrame) -> list[str]:
         """Filtra el dataframe con la informacion del portal y obtiene el id del cliente buscado."""
         try:
@@ -257,7 +249,13 @@ class CrearDoumento():
 
     def __init__(self, data_frame: DataFrame, carpeta_salida: Path):
         self.data_frame = data_frame
-        self.carpeta_salida = Path(carpeta_salida)
+        self.carpeta_salida = carpeta_salida
+
+        try:
+            self.carpeta_salida.mkdir(parents=True, exist_ok=True)
+        except Exception as e:
+            print(f"ERROR al crear la carpeta: {e}")
+            sys.exit("-> Fin de la ejecucion del programa. <-".upper())
 
     def crear_documentos_csv(self, nombre_archivo: str) -> Path:
         """ Crea un documento '.csv' """
