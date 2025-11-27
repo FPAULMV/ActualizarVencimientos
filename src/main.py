@@ -288,7 +288,7 @@ class CrearDoumento():
 if __name__ == '__main__':
 
     try:
-        load_dotenv()
+        load_dotenv(override=True, encoding="latin-1")
         PATH_FILES_SINERGIA = Path(os.getenv('PATH_FILES_SINERGIA'))
         QUERY_SINERGIA = os.getenv('QUERY_SINERGIA')
         QUERY_SINERGIA_PORTAL_ID = os.getenv('QUERY_SINERGIA_PORTAL_ID')
@@ -361,4 +361,4 @@ if __name__ == '__main__':
 
 
 
-    print(("-> Fin de la ejecucion del programa. <-".upper()))
+    print(("-> Fin de la ejecucion del programa. <-".upper()))  
