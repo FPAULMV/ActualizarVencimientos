@@ -12,11 +12,15 @@ class Vencimientos():
 
     def obtener_vencimientos(self, query: str) -> DataFrame:
         try:
+            print(query)
+            query = query.replace('CrÃ©dito', 'Crédito')
             query = text(query)
+            print(query)
             with engine.connect() as conn:
                 df = pandas.read_sql(query, conn)
+                print(df)
                 if df.empty:
-                    print("La consulta de vencimientos devolvio un DataFrame vacio.")
+                    print("ERROR - La consulta de vencimientos devolvio un DataFrame vacio.")
                     sys.exit("-> Fin de la ejecucion del programa. <-".upper())
                     
                 return df
@@ -299,6 +303,9 @@ if __name__ == '__main__':
         PORT = int(os.getenv('PORT'))
         USER = str(os.getenv('USER'))
         PSW = str(os.getenv('PSW'))
+        S_USER = str(os.getenv('S_USER'))
+        S_PSW = str(os.getenv('S_PSW'))
+        S_PORT = int(os.getenv('S_PORT'))
         odbc_encoded = urllib.parse.quote_plus(CONN_STR)
         engine = create_engine(f"mssql+pyodbc:///?odbc_connect={odbc_encoded}",pool_pre_ping=True,fast_executemany=True)
         print("\n--- Variables de entorno cargadas con exito. ---\n".upper())
@@ -356,7 +363,7 @@ if __name__ == '__main__':
 
     sinergia.delete_vencimientos()
     registros_insert = sinergia.excect_cardsystem_insert(INSERTS_ARCHIVOS_GENERALES)
-    sftp.ftp_send_list_files(HOST, PORT, USER, PSW, ARCHIVOS_CREADOS_PATHS)
+    sftp.ssh_send_list_files(HOST, S_PORT, S_USER, S_PSW, ARCHIVOS_CREADOS_PATHS)
     archivo_salida_sinergia.limpiar_archivos(PATH_FILES_SINERGIA)
 
 
