@@ -301,7 +301,7 @@ if __name__ == '__main__':
         CONN_STR = os.getenv('CONN_STR')
         HOST = str(os.getenv('S_HOST'))
         PORT = int(os.getenv('PORT'))
-        USER = str(os.getenv('USER'))
+        USER = str(os.getenv('USER')) #
         PSW = str(os.getenv('PSW'))
         S_USER = str(os.getenv('S_USER'))
         S_PSW = str(os.getenv('S_PSW'))

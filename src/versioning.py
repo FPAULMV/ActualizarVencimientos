@@ -1,5 +1,5 @@
 __app_name__ = "Vencimientos" 
-__version__ = "2.0.0"
+__version__ = "2.0.1"
 __release_date__ = "2025-11-05"
 __author__ = "© Paul Morales -> paul.morales@fpaulmv.com"
 

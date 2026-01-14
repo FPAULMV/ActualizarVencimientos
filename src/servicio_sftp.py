@@ -62,7 +62,7 @@ class Sftp():
         """Envía múltiples archivos por SSH."""
         try:
             sock = socket.create_connection((host, port), timeout=10)
-            transport = paramiko.Transport(sock)
+            transport = paramiko.Transport(sock) #
             transport.banner_timeout = 10
             transport.connect(username=user, password=psw)
             sftp = paramiko.SFTPClient.from_transport(transport)
