@@ -299,7 +299,7 @@ if __name__ == '__main__':
         PATH_FILES_PETRODIESEL = Path(os.getenv('PATH_FILES_PETRODIESEL'))
         PATH_FILES_PROENERGETICS = Path(os.getenv('PATH_FILES_PROENERGETICS'))
         CONN_STR = os.getenv('CONN_STR')
-        HOST = str(os.getenv('HOST'))
+        HOST = str(os.getenv('S_HOST'))
         PORT = int(os.getenv('PORT'))
         USER = str(os.getenv('USER'))
         PSW = str(os.getenv('PSW'))
